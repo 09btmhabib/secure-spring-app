@@ -1,5 +1,6 @@
 package com.coder.securespringapp.controller;
 
+import com.coder.securespringapp.dto.JwtResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -41,7 +42,5 @@ public class LoginController {
 
     }
 
-    record JwtResponse(String token) {
 
-    }
 }
