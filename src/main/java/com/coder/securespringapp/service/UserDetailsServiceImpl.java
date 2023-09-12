@@ -1,7 +1,7 @@
 package com.coder.securespringapp.service;
 
 import com.coder.securespringapp.model.User;
-import com.coder.securespringapp.model.UserDetailsDto;
+import com.coder.securespringapp.model.UserDetail;
 import com.coder.securespringapp.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -17,10 +17,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetailsDto loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetail loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
-        return UserDetailsDto.build(user);
+        return UserDetail.build(user);
     }
 
 }

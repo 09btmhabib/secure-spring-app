@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class UserDetailsDto implements UserDetails {
+public class UserDetail implements UserDetails {
     private Long id;
     private String username;
     private String email;
@@ -20,12 +20,12 @@ public class UserDetailsDto implements UserDetails {
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public static UserDetailsDto build(User user) {
+    public static UserDetail build(User user) {
         List<SimpleGrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.toString()))
                 .toList();
 
-        return new UserDetailsDto(
+        return new UserDetail(
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),
