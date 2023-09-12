@@ -1,0 +1,8 @@
+.classpath
+.project
+workspace.xml
+.settings/
+target/
+*.db
+*.iml
+*.md
